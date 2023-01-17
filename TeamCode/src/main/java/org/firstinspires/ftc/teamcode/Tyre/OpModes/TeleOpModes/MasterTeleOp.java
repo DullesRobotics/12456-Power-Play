@@ -19,7 +19,7 @@ public class MasterTeleOp extends LinearOpMode {
         waitForStart();
 
         baseRobot.driveWithController(baseRobot.ctrl1());
-        
+
 
         while (opModeIsActive())
             baseRobot.getLogger().updateLog();
