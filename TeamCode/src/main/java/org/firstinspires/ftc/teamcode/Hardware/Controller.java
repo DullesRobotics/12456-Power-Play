@@ -51,6 +51,10 @@ public class Controller{
         return !autoMode ? g.dpad_left : false;
     }
 
+    public boolean buttonRight(){
+        return !autoMode ? g.dpad_right : false;
+    }
+
     public boolean rightBumper(){
         return !autoMode ? g.right_bumper : right_bumper;
     }
