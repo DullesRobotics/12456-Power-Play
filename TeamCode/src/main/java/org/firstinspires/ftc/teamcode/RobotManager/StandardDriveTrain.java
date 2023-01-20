@@ -39,12 +39,12 @@ public class StandardDriveTrain extends DriveTrain{
                 int numBumpersActive = (ctrl.rightBumper() ? 1 : 0) + (ctrl.leftBumper() ? 1 : 0);
                 switch(numBumpersActive){
                     case 1: maxSpeed = precisionSpeed; break;
-                    case 2: maxSpeed = ultraPSpeed; break;
+                    case 2: maxSpeed = ultrasPSpeed; break;
                     default:
                     case 0: maxSpeed = speed;
                 }
 
-                if(currentSpeed = maxSpeed){
+                if(currentSpeed == maxSpeed){
                     currentSpeed += maxSpeed/500;
                 }
                 if(maxSpeed < currentSpeed){
@@ -54,7 +54,7 @@ public class StandardDriveTrain extends DriveTrain{
 
                 flmPower = -ctrl.rightY();
                 frmPower = ctrl.leftY();
-                setSideDrivePower(currentSpeed * flmPower, currentSpeed * frmPower);
+                setSidedDrivePower(currentSpeed * flmPower, currentSpeed * frmPower);
             }
         }), true);
     }

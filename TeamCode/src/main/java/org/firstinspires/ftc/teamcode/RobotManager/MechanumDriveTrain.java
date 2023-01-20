@@ -36,18 +36,18 @@ public class MechanumDriveTrain extends StandardDriveTrain{
     @Override
     public void driveWithController(Controller ctrl){
         getLogger().log(Level.INFO, "Starting Drive with contoller, Mechanum");
-        addThread(new Thread() -> {
+        addThread(new Thread(() -> {
             double flmPower, frmPower, blmPower, brmPower, currentSpeed = 0, maxSpeed;
             while(op().opModeIsActive()){
                 int numBumpersActive = (ctrl.rightBumper() ? 1 : 0) +(ctrl.leftBumper() ? 1 : 0);
                 switch(numBumpersActive){
                     case 1: maxSpeed = precisionSpeed; break;
-                    case 2: maxSpeed = ultraPSpeed; break;
+                    case 2: maxSpeed = ultrasPSpeed; break;
                     default:
                     case 0: maxSpeed = speed;
                 }
 
-                if(currentSpeed = maxSpeed){
+                if(currentSpeed == maxSpeed){
                     currentSpeed += maxSpeed/1000;
                 }
                 if(maxSpeed < currentSpeed){
@@ -62,7 +62,7 @@ public class MechanumDriveTrain extends StandardDriveTrain{
 
                 setIndividualDrivePower(currentSpeed * flmPower, currentSpeed * frmPower, currentSpeed * blmPower, currentSpeed * brmPower);
             }
-        }, true, () -> getLogger().clearData());
+        }), true, () -> getLogger().clearData());
     }
 
 }

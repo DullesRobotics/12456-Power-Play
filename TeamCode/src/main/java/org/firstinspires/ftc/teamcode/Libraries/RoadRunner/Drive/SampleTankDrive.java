@@ -39,24 +39,24 @@ import org.firstinspires.ftc.teamcode.Libraries.PID;
 import org.firstinspires.ftc.teamcode.Libraries.RoadRunner.Util.DashboardUtil;
 import org.firstinspires.ftc.teamcode.Libraries.RoadRunner.Util.LynxModuleUtil;
 import org.firstinspires.ftc.teamcode.RobotManager.StandardDriveTrain;
-import org.firstinspires.ftc.teamcode.Plateosaurus.Configurator;
+import org.firstinspires.ftc.teamcode.Tyre.Configurator;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.firstinspires.ftc.teamcode.Plateosaurus.RoadRunnerDriveConstants.IMU_AXIS;
-import static org.firstinspires.ftc.teamcode.Plateosaurus.RoadRunnerDriveConstants.MAX_ACCEL;
-import static org.firstinspires.ftc.teamcode.Plateosaurus.RoadRunnerDriveConstants.MAX_ANG_ACCEL;
-import static org.firstinspires.ftc.teamcode.Plateosaurus.RoadRunnerDriveConstants.MAX_ANG_VEL;
-import static org.firstinspires.ftc.teamcode.Plateosaurus.RoadRunnerDriveConstants.MAX_VEL;
-import static org.firstinspires.ftc.teamcode.Plateosaurus.RoadRunnerDriveConstants.MOTOR_VELO_PID;
-import static org.firstinspires.ftc.teamcode.Plateosaurus.RoadRunnerDriveConstants.RUN_USING_ENCODER;
-import static org.firstinspires.ftc.teamcode.Plateosaurus.RoadRunnerDriveConstants.TRACK_WIDTH;
-import static org.firstinspires.ftc.teamcode.Plateosaurus.RoadRunnerDriveConstants.encoderTicksToInches;
-import static org.firstinspires.ftc.teamcode.Plateosaurus.RoadRunnerDriveConstants.kA;
-import static org.firstinspires.ftc.teamcode.Plateosaurus.RoadRunnerDriveConstants.kStatic;
-import static org.firstinspires.ftc.teamcode.Plateosaurus.RoadRunnerDriveConstants.kV;
+import static org.firstinspires.ftc.teamcode.Tyre.RoadRunnerDriveConstants.IMU_AXIS;
+import static org.firstinspires.ftc.teamcode.Tyre.RoadRunnerDriveConstants.MAX_ACCEL;
+import static org.firstinspires.ftc.teamcode.Tyre.RoadRunnerDriveConstants.MAX_ANG_ACCEL;
+import static org.firstinspires.ftc.teamcode.Tyre.RoadRunnerDriveConstants.MAX_ANG_VEL;
+import static org.firstinspires.ftc.teamcode.Tyre.RoadRunnerDriveConstants.MAX_VEL;
+import static org.firstinspires.ftc.teamcode.Tyre.RoadRunnerDriveConstants.MOTOR_VELO_PID;
+import static org.firstinspires.ftc.teamcode.Tyre.RoadRunnerDriveConstants.RUN_USING_ENCODER;
+import static org.firstinspires.ftc.teamcode.Tyre.RoadRunnerDriveConstants.TRACK_WIDTH;
+import static org.firstinspires.ftc.teamcode.Tyre.RoadRunnerDriveConstants.encoderTicksToInches;
+import static org.firstinspires.ftc.teamcode.Tyre.RoadRunnerDriveConstants.kA;
+import static org.firstinspires.ftc.teamcode.Tyre.RoadRunnerDriveConstants.kStatic;
+import static org.firstinspires.ftc.teamcode.Tyre.RoadRunnerDriveConstants.kV;
 
 /*
  * Simple tank drive hardware implementation for REV hardware.

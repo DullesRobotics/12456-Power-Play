@@ -38,26 +38,26 @@ import com.qualcomm.robotcore.hardware.configuration.typecontainers.MotorConfigu
 import org.firstinspires.ftc.teamcode.Libraries.PID;
 import org.firstinspires.ftc.teamcode.Libraries.RoadRunner.Util.DashboardUtil;
 import org.firstinspires.ftc.teamcode.Libraries.RoadRunner.Util.LynxModuleUtil;
-import org.firstinspires.ftc.teamcode.RobotManager.MecanumDriveTrain;
-import org.firstinspires.ftc.teamcode.Plateosaurus.Configurator;
+import org.firstinspires.ftc.teamcode.RobotManager.MechanumDriveTrain;
+import org.firstinspires.ftc.teamcode.Tyre.Configurator;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
-import static org.firstinspires.ftc.teamcode.Plateosaurus.RoadRunnerDriveConstants.MAX_ACCEL;
-import static org.firstinspires.ftc.teamcode.Plateosaurus.RoadRunnerDriveConstants.MAX_ANG_ACCEL;
-import static org.firstinspires.ftc.teamcode.Plateosaurus.RoadRunnerDriveConstants.MAX_ANG_VEL;
-import static org.firstinspires.ftc.teamcode.Plateosaurus.RoadRunnerDriveConstants.MAX_VEL;
-import static org.firstinspires.ftc.teamcode.Plateosaurus.RoadRunnerDriveConstants.MOTOR_VELO_PID;
-import static org.firstinspires.ftc.teamcode.Plateosaurus.RoadRunnerDriveConstants.RUN_USING_ENCODER;
-import static org.firstinspires.ftc.teamcode.Plateosaurus.RoadRunnerDriveConstants.TRACK_WIDTH;
-import static org.firstinspires.ftc.teamcode.Plateosaurus.RoadRunnerDriveConstants.encoderTicksToInches;
-import static org.firstinspires.ftc.teamcode.Plateosaurus.RoadRunnerDriveConstants.kA;
-import static org.firstinspires.ftc.teamcode.Plateosaurus.RoadRunnerDriveConstants.kStatic;
-import static org.firstinspires.ftc.teamcode.Plateosaurus.RoadRunnerDriveConstants.kV;
-import static org.firstinspires.ftc.teamcode.Plateosaurus.RoadRunnerDriveConstants.IMU_AXIS;
+import static org.firstinspires.ftc.teamcode.Tyre.RoadRunnerDriveConstants.MAX_ACCEL;
+import static org.firstinspires.ftc.teamcode.Tyre.RoadRunnerDriveConstants.MAX_ANG_ACCEL;
+import static org.firstinspires.ftc.teamcode.Tyre.RoadRunnerDriveConstants.MAX_ANG_VEL;
+import static org.firstinspires.ftc.teamcode.Tyre.RoadRunnerDriveConstants.MAX_VEL;
+import static org.firstinspires.ftc.teamcode.Tyre.RoadRunnerDriveConstants.MOTOR_VELO_PID;
+import static org.firstinspires.ftc.teamcode.Tyre.RoadRunnerDriveConstants.RUN_USING_ENCODER;
+import static org.firstinspires.ftc.teamcode.Tyre.RoadRunnerDriveConstants.TRACK_WIDTH;
+import static org.firstinspires.ftc.teamcode.Tyre.RoadRunnerDriveConstants.encoderTicksToInches;
+import static org.firstinspires.ftc.teamcode.Tyre.RoadRunnerDriveConstants.kA;
+import static org.firstinspires.ftc.teamcode.Tyre.RoadRunnerDriveConstants.kStatic;
+import static org.firstinspires.ftc.teamcode.Tyre.RoadRunnerDriveConstants.kV;
+import static org.firstinspires.ftc.teamcode.Tyre.RoadRunnerDriveConstants.IMU_AXIS;
 
 /*
  * Simple mecanum drive hardware implementation for REV hardware.
@@ -104,12 +104,12 @@ public class SampleMecanumDrive extends MecanumDrive {
 
     private Pose2d lastPoseOnTurn;
 
-    private MecanumDriveTrain driveTrain;
+    private MechanumDriveTrain driveTrain;
 
     public SampleMecanumDrive(LinearOpMode op) {
         super(kV, kA, kStatic, TRACK_WIDTH, TRACK_WIDTH, LATERAL_MULTIPLIER);
 
-        driveTrain = new MecanumDriveTrain(op, new PID(MOTOR_VELO_PID.p, MOTOR_VELO_PID.i, MOTOR_VELO_PID.d));
+        driveTrain = new MechanumDriveTrain(op, new PID(MOTOR_VELO_PID.p, MOTOR_VELO_PID.i, MOTOR_VELO_PID.d));
         driveTrain.addHardware(Configurator.getHardware(driveTrain));
 
         HardwareMap hardwareMap = op.hardwareMap;
@@ -181,7 +181,7 @@ public class SampleMecanumDrive extends MecanumDrive {
         // for instance, setLocalizer(new ThreeTrackingWheelLocalizer(...));
     }
 
-    public MecanumDriveTrain getDriveTrain(){
+    public MechanumDriveTrain getDriveTrain(){
         return driveTrain;
     }
 

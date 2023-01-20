@@ -1,10 +1,14 @@
 package org.firstinspires.ftc.teamcode.RobotManager;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.hardware.ColorSensor;
+import com.qualcomm.robotcore.hardware.TouchSensor;
+
 import org.firstinspires.ftc.teamcode.Hardware.Controller;
 import org.firstinspires.ftc.teamcode.Hardware.HardwareComponent;
 import org.firstinspires.ftc.teamcode.Hardware.ComponentArea;
 import org.firstinspires.ftc.teamcode.Hardware.Motor.DrivetrainMotor;
+import org.firstinspires.ftc.teamcode.Hardware.Motor.Motor;
 import org.firstinspires.ftc.teamcode.Hardware.Motor.MotorType;
 import org.firstinspires.ftc.teamcode.Hardware.Servo;
 import org.firstinspires.ftc.teamcode.Libraries.AddOns.AddOnHandler;
@@ -62,10 +66,10 @@ public class Robot{
      * @return the hardware component
      */
     @Nullable
-    public DriveTrainMotor getDriveTrainMotor(MotorType.DrivetrainPosition drivetrainPosition){
+    public DrivetrainMotor getDrivetrainMotor(MotorType.DrivetrainPosition drivetrainPosition){
         for(HardwareComponent hdw : hardwareComponents)
             if(hdw instanceof DrivetrainMotor && ((DrivetrainMotor) hdw).getDrivetrainPosition() == drivetrainPosition)
-                return (DriveTrainMotor) hdw;
+                return (DrivetrainMotor) hdw;
         return null;
     }
 
@@ -100,7 +104,7 @@ public class Robot{
      * @return the hardware components
      */
     public ArrayList<Motor> getMotors(ComponentArea area){
-        ArrayList<Motors> ar = new ArrayList<>();
+        ArrayList<Motor> ar = new ArrayList<>();
         for(HardwareComponent hdw : hardwareComponents)
             if(hdw instanceof Motor && hdw.getComponentArea() == area)
                 ar.add((Motor) hdw);
@@ -169,6 +173,7 @@ public class Robot{
         for(HardwareComponent hdw: hardwareComponents)
             if(hdw instanceof IMU && hdw.getId().equals(id))
                 return (IMU) hdw;
+        return null;
     }
 
     /**
@@ -192,29 +197,29 @@ public class Robot{
      * @param id id of the USB Webcam
      * @return the hardware component
      */
-    @Nullable
-    public USBWebcam getUSBWebcam(String id){
-        for(HardwareComponent hdw : hardwareComponents)
-            if(hdw instanceof USBWebcam && hdw.getId().equals(id))
-                return (USBWebcam) hdw;
-        return null;
-    }
+//    @Nullable
+//    public USBWebcam getUSBWebcam(String id){
+//        for(HardwareComponent hdw : hardwareComponents)
+//            if(hdw instanceof USBWebcam && hdw.getId().equals(id))
+//                return (USBWebcam) hdw;
+//        return null;
+//    }
 
     /**
      * Gets an IMU with the default ID "IMU"
      * If there is no IMU with the default ID, it gets the first IMU in the ArrayList
      * @return the hardware component
      */
-    @Nullable
-    public USBWebcam getUSBWebcam(){
-        USBWebcam webcam = getUSBWebcam("Webcam");
-        if(webcam == null)
-            for(HardwareComponent hdw : hardwareComponents){
-                webcam = hdw instanceof USBWebcam ? (USBWebcam) hdw : null;
-                break;
-            }
-        return webcam;
-    }
+//    @Nullable
+//    public USBWebcam getUSBWebcam(){
+//        USBWebcam webcam = getUSBWebcam("Webcam");
+//        if(webcam == null)
+//            for(HardwareComponent hdw : hardwareComponents){
+//                webcam = hdw instanceof USBWebcam ? (USBWebcam) hdw : null;
+//                break;
+//            }
+//        return webcam;
+//    }
 
     /**
      * Adds a running thread to remember
@@ -240,7 +245,7 @@ public class Robot{
         UUID uuid = UUID.randomUUID();
         runningThreads.put(uuid, t);
         endingRunnables.put(uuid, endRunnable);
-        if(autoStart) t.start;
+        if(autoStart) t.start();
         return uuid;
     }
 
