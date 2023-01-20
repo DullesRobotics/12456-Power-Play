@@ -57,12 +57,12 @@ public class MechanumDriveTrain extends StandardDriveTrain{
 
                 flmPower = ctrl.leftY() + ctrl.leftTrigger() - ctrl.rightTrigger();
                 blmPower = ctrl.leftY() + ctrl.rightTrigger() - ctrl.leftTrigger();
-                frmPower = ctrl.rightY() - ctrl.leftTrigger + ctrl.rightTrigger();
+                frmPower = ctrl.rightY() - ctrl.leftTrigger() + ctrl.rightTrigger();
                 brmPower = ctrl.rightY() - ctrl.rightTrigger() + ctrl.leftTrigger();
 
                 setIndividualDrivePower(currentSpeed * flmPower, currentSpeed * frmPower, currentSpeed * blmPower, currentSpeed * brmPower);
             }
-        }), true, () -> getLogger().clearData());
+        }, true, () -> getLogger().clearData());
     }
 
 }

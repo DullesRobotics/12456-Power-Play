@@ -3,17 +3,17 @@ package org.firstinspires.ftc.teamcode.Tyre.OpModes.TeleOpModes;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-import org.firstinspires.ftc.teamcode.RobotManager.MecanumDriveTrain;
+import org.firstinspires.ftc.teamcode.RobotManager.MechanumDriveTrain;
 import org.firstinspires.ftc.teamcode.Tyre.Configurator;
 
 @TeleOp
 public class MecDriveTest extends LinearOpMode {
 
-    private MecanumDriveTrain robot;
+    private MechanumDriveTrain robot;
 
     @Override
     public void runOpMode() throws InterruptedException{
-        robot = new MecanumDriveTrain(this);
+        robot = new MechanumDriveTrain(this);
         robot.addHardware(Configurator.getDriveTrainMotors(robot));
 
         waitForStart();

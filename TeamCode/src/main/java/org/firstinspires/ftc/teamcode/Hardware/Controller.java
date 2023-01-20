@@ -9,7 +9,7 @@ import java.nio.ByteBuffer;
 
 import static com.qualcomm.robotcore.robocol.RobocolParsable.HEADER_LENGTH;
 
-public Controller{
+public class Controller{
 
     private Gamepad g;
     private boolean autoMode = false;
@@ -18,7 +18,7 @@ public Controller{
         this.g = g;
     }
 
-    private boolean a, b, x, y, dpad_down, dpad_up, dpad_left, dpad_right, left_bumpber, right_bumper, left_stick_button, right_stick_button, start, back, home;
+    private boolean a, b, x, y, dpad_down, dpad_up, dpad_left, dpad_right, left_bumper, right_bumper, left_stick_button, right_stick_button, start, back, guide;
     private float left_trigger, right_trigger, left_stick_x, left_stick_y, right_stick_x, right_stick_y;
 
     public boolean buttonA(){
@@ -102,7 +102,7 @@ public Controller{
     }
 
     public boolean buttonMode(){
-        return !autoMode ? g.home : home;
+        return !autoMode ? g.guide : guide;
     }
 
     /**
@@ -119,8 +119,9 @@ public Controller{
      *
      * @param autoMode What the controller lock state should be
      */
-    public boolean setAutoMode(boolean autoMode){
+    public void setAutoMode(boolean autoMode){
         this.autoMode = autoMode;
+
     }
 
     /**
