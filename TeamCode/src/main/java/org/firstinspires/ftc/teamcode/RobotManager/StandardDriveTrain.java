@@ -44,7 +44,7 @@ public class StandardDriveTrain extends DriveTrain{
                     case 0: maxSpeed = speed;
                 }
 
-                if(currentSpeed == maxSpeed){
+                if(currentSpeed < maxSpeed){
                     currentSpeed += maxSpeed/500;
                 }
                 if(maxSpeed < currentSpeed){
