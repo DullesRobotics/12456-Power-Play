@@ -47,7 +47,7 @@ public class MechanumDriveTrain extends StandardDriveTrain{
                     case 0: maxSpeed = speed;
                 }
 
-                if(currentSpeed == maxSpeed){
+                if(currentSpeed < maxSpeed){
                     currentSpeed += maxSpeed/1000;
                 }
                 if(maxSpeed < currentSpeed){
