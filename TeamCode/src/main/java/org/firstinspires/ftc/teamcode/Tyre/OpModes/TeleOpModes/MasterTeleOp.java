@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.teamcode.RobotManager.MechanumDriveTrain;
 import org.firstinspires.ftc.teamcode.RobotManager.StandardDriveTrain;
 import org.firstinspires.ftc.teamcode.Tyre.Configurator;
-//import org.firstinspires.ftc.teamcode.Tyre.ControlCenterTeleOp;
+import org.firstinspires.ftc.teamcode.Tyre.ControlCenterTeleOp;
 
 @TeleOp
 public class MasterTeleOp extends LinearOpMode {
@@ -19,6 +19,7 @@ public class MasterTeleOp extends LinearOpMode {
         waitForStart();
 
         baseRobot.driveWithController(baseRobot.ctrl1());
+        ControlCenterTeleOp.clawRelease(baseRobot, baseRobot.ctrl2());
 
 
         while (opModeIsActive())
