@@ -10,7 +10,7 @@ import org.firstinspires.ftc.teamcode.RobotManager.Robot;
 @Config
 public class ControlCenterTeleOp {
 
-    public static double clawClosedPos = 0.3, clawGripPos = 0.2, clawOpenPos = 0.5;
+    public static double clawClosedPos = 0.6, clawGripPos = 0.2, clawOpenPos = 0.7;
     public static double originalLiftPos = 0.4, liftDownPow = -0.2, liftUpPow = 0.2;
 
     public static void clawRelease(Robot r, Controller ctrl){
@@ -19,13 +19,13 @@ public class ControlCenterTeleOp {
             outtakeServo.get().setPosition(clawOpenPos);
             while(r.op().opModeIsActive()){
                 if(ctrl.rightBumper()){
-                    outtakeServo.get().setPosition(clawClosedPos);
+                    outtakeServo.get().setPosition(clawOpenPos);
                 }
                 else if(ctrl.leftBumper()){
                     outtakeServo.get().setPosition(clawGripPos);
                 }
                 else{
-                    outtakeServo.get().setPosition(clawOpenPos);
+                    outtakeServo.get().setPosition(clawClosedPos);
                 }
             }
         }), true);
