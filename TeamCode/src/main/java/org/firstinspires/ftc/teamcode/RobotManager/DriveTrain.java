@@ -81,7 +81,7 @@ public abstract class DriveTrain extends Robot{
         DrivetrainMotor flm = getDrivetrainMotor(MotorType.DrivetrainPosition.FLM);
         DrivetrainMotor frm = getDrivetrainMotor(MotorType.DrivetrainPosition.FRM);
         DrivetrainMotor blm = getDrivetrainMotor(MotorType.DrivetrainPosition.BLM);
-        DrivetrainMotor brm = getDrivetrainMotor(MotorType.DrivetrainPosition.BLM);
+        DrivetrainMotor brm = getDrivetrainMotor(MotorType.DrivetrainPosition.BRM);
         if(flm != null && flm.get() != null) flm.get().setPower(flmPower);
         if(frm != null && frm.get() != null) frm.get().setPower(frmPower);
         if(blm != null && blm.get() != null) blm.get().setPower(blmPower);

@@ -3,7 +3,7 @@ package org.firstinspires.ftc.teamcode.Hardware.Motor;
 import org.firstinspires.ftc.teamcode.Hardware.ComponentArea;
 import org.firstinspires.ftc.teamcode.RobotManager.Robot;
 
-public class DrivetrainMotor extends Motor {
+public class DrivetrainMotor extends Motor{
 
     private final MotorConfiguration motorConfiguration;
     private final MotorType.DrivetrainPosition drivetrainPosition;
@@ -14,8 +14,8 @@ public class DrivetrainMotor extends Motor {
         this.drivetrainPosition = drivetrainPosition;
 
         switch (drivetrainPosition) {
-            case FRM:
-            case BRM:
+            case FLM:
+            case BLM:
                 setFlipped(false);
         }
 
