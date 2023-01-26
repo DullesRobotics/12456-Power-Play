@@ -66,7 +66,7 @@ public class Robot{
      * @return the hardware component
      */
     @Nullable
-    public DrivetrainMotor getDrivetrainMotor(MotorType.DrivetrainPosition drivetrainPosition){
+    public DrivetrainMotor getDrivetrainMotor(MotorType.Drivetr3ainPosition drivetrainPosition){
         for(HardwareComponent hdw : hardwareComponents)
             if(hdw instanceof DrivetrainMotor && ((DrivetrainMotor) hdw).getDrivetrainPosition() == drivetrainPosition)
                 return (DrivetrainMotor) hdw;

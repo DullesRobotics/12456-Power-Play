@@ -22,7 +22,7 @@ public class AutonFunctions {
         mainFrame.addHardware(Configurator.getHardware(mainFrame));
         op.waitForStart();
         if(op.isStopRequested()) return;
-        long timeToDrive = position == FieldPosition.RIGHT ? timeToPark : timeToPark;
+        long timeToDrive = position == FieldPosition.SAME ? timeToPark : timeToPark;
         timeToDrive += System.currentTimeMillis();
         while(System.currentTimeMillis() < timeToDrive && op.opModeIsActive())
             mainFrame.setIndividualDrivePower(0,0,-0.3,-0.3);
@@ -30,15 +30,17 @@ public class AutonFunctions {
         op.requestOpModeStop();
     }
 
-//    public static void startNew(LinearOpMode op, TeamColor t, FieldPosition position){
-//        roadRunner = new SampleMecanumDrive(op);
-//        mainFrame = roadRunner.getDriveTrain();
-//        op.waitForStart();
-//
-//        if(op.isStopRequested()) return;
-//
-//        if(pos)
-//    }
+    public static void startNew(LinearOpMode op, TeamColor t, FieldPosition position){
+        roadRunner = new SampleMecanumDrive(op);
+        mainFrame = roadRunner.getDriveTrain();
+        op.waitForStart();
+
+        if(op.isStopRequested()) return;
+
+        if(position == FieldPosition.SAME){
+//            mainFrame.setIndividualDrivePower();
+        }
+    }
 
     public enum TeamColor{
         RED, BLUE
@@ -48,7 +50,7 @@ public class AutonFunctions {
         RIGHT, LEFT;
     }
     public enum FieldPosition{
-        RIGHT, LEFT
+        SAME, DIFFERENT
     }
 
 

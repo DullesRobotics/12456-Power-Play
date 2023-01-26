@@ -5,7 +5,7 @@ public enum ComponentArea {
     DRIVE_TRAIN,
     CENTER_OMNI,
     IMU,
-    CLAW,
-    LIFT,
+//    CLAW,
+//    LIFT,
 
 }
