@@ -1,6 +1,6 @@
 package org.firstinspires.ftc.teamcode.Tyre.OpModes.AutonomousOpModes;
 
-import static org.firstinspires.ftc.teamcode.Tyre.AutonFunctions.FieldPosition.RIGHT;
+import static org.firstinspires.ftc.teamcode.Tyre.AutonFunctions.FieldPosition.SAME;
 import static org.firstinspires.ftc.teamcode.Tyre.AutonFunctions.TeamColor.RED;
 
 import com.acmerobotics.dashboard.config.Config;
@@ -14,6 +14,6 @@ import org.firstinspires.ftc.teamcode.Tyre.AutonFunctions;
 public class Test extends LinearOpMode{
     @Override
     public void runOpMode()throws InterruptedException{
-        AutonFunctions.start(this,RED,RIGHT);
+        AutonFunctions.start(this,RED,SAME);
     }
 }

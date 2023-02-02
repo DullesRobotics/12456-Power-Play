@@ -38,7 +38,8 @@ public class AutonFunctions {
         if(op.isStopRequested()) return;
 
         if(position == FieldPosition.SAME){
-//            mainFrame.setIndividualDrivePower();
+            mainFrame.setIndividualDrivePower(0,0,3.3,3.3);
+            mainFrame.autonWait(100);
         }
     }
 
