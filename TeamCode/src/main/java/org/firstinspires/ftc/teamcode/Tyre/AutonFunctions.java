@@ -36,18 +36,21 @@ public class AutonFunctions {
     public static void startNew(LinearOpMode op, TeamColor t, FieldPosition position){
         roadRunner = new SampleMecanumDrive(op);
         mainFrame = roadRunner.getDriveTrain();
+        boolean isRed = t == TeamColor.RED;
         op.waitForStart();
 
         if(op.isStopRequested()) return;
 
         if(position == FieldPosition.SAME){
-            boolean isRed = t == TeamColor.RED;
-            mainFrame.setIndividualDrivePower(0,isRed ? 1.2 : -1.2,3.3,3.3);
+            mainFrame.setIndividualDrivePower(isRed ? -1.2 : 1.2,isRed ? 1.2 : -1.2,isRed ? 1.2 : -1.2,isRed ? -1.2 : 1.2);
             mainFrame.autonWait(sameSidePark);
             mainFrame.setIndividualDrivePower(1,1,0,0);
             mainFrame.autonWait(500);
             mainFrame.setIndividualDrivePower(0,0,3.3,3.3);
         }
+//        else if(position == FieldPosition.DIFFERENT){
+//
+//        }
     }
 
     public enum TeamColor{
