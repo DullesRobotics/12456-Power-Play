@@ -9,6 +9,7 @@ import org.firstinspires.ftc.teamcode.Hardware.Servo;
 import org.firstinspires.ftc.teamcode.Libraries.RoadRunner.Drive.SampleMecanumDrive;
 import org.firstinspires.ftc.teamcode.RobotManager.MechanumDriveTrain;
 
+import java.lang.reflect.Field;
 import java.text.FieldPosition;
 
 @Config
@@ -16,6 +17,8 @@ public class AutonFunctions {
     private static volatile MechanumDriveTrain mainFrame;
     private static volatile SampleMecanumDrive roadRunner;
     public static int timeToPark = 5000;
+    public static int sameSidePark = 2000;
+    public static int oppositeSidePark = 4000;
 
     public static void start(LinearOpMode op, TeamColor t, FieldPosition position){
         mainFrame = new MechanumDriveTrain(op);
@@ -38,8 +41,12 @@ public class AutonFunctions {
         if(op.isStopRequested()) return;
 
         if(position == FieldPosition.SAME){
+            boolean isRed = t == TeamColor.RED;
+            mainFrame.setIndividualDrivePower(0,isRed ? 1.2 : -1.2,3.3,3.3);
+            mainFrame.autonWait(sameSidePark);
+            mainFrame.setIndividualDrivePower(1,1,0,0);
+            mainFrame.autonWait(500);
             mainFrame.setIndividualDrivePower(0,0,3.3,3.3);
-            mainFrame.autonWait(100);
         }
     }
 
