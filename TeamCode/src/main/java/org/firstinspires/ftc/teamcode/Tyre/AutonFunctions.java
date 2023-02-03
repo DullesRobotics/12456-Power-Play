@@ -17,7 +17,7 @@ public class AutonFunctions {
     private static volatile MechanumDriveTrain mainFrame;
     private static volatile SampleMecanumDrive roadRunner;
     public static int timeToPark = 5000;
-    public static int sameSidePark = 2000;
+    public static int sameSidePark = 500;
     public static int oppositeSidePark = 4000;
 
     public static void start(LinearOpMode op, TeamColor t, FieldPosition position){
@@ -42,11 +42,16 @@ public class AutonFunctions {
         if(op.isStopRequested()) return;
 
         if(position == FieldPosition.SAME){
-            mainFrame.setIndividualDrivePower(isRed ? -1.2 : 1.2,isRed ? 1.2 : -1.2,isRed ? 1.2 : -1.2,isRed ? -1.2 : 1.2);
+            mainFrame.setIndividualDrivePower(isRed ? -0.75 : 0.75,isRed ? 0.75 : -0.75,isRed ? 0.75 : -0.75,isRed ? -0.75 : 0.75);
             mainFrame.autonWait(sameSidePark);
-            mainFrame.setIndividualDrivePower(1,1,0,0);
+            mainFrame.setIndividualDrivePower(0,0,0,0);
+            mainFrame.autonWait(1000);
+            mainFrame.setIndividualDrivePower(-0.5,-0.5,-0.5,-0.5);
+            mainFrame.autonWait(700);
+            mainFrame.setIndividualDrivePower(0.5,0.5,0.5,0.5);
+            mainFrame.autonWait(700);
+            mainFrame.setIndividualDrivePower(isRed ? -0.5 : 0.5,isRed ? 0.5 : -0.5,isRed ? 0.5 : -0.5,isRed ? -0.5 : 0.5);
             mainFrame.autonWait(500);
-            mainFrame.setIndividualDrivePower(0,0,3.3,3.3);
         }
 //        else if(position == FieldPosition.DIFFERENT){
 //
