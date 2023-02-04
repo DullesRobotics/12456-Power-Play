@@ -18,7 +18,7 @@ public class AutonFunctions {
     private static volatile SampleMecanumDrive roadRunner;
     public static int timeToPark = 5000;
     public static int parkingTime = 600;
-    public static double motorMovementPower = 0.75;
+    public static double motorMovementPower = 0.5;
 
     public static void start(LinearOpMode op, TeamColor t, FieldPosition position){
         mainFrame = new MechanumDriveTrain(op);
@@ -47,13 +47,13 @@ public class AutonFunctions {
             mainFrame.setIndividualDrivePower(motorPower,-motorPower,-motorPower,motorPower);
             mainFrame.autonWait(parkingTime);
             mainFrame.setIndividualDrivePower(0,0,0,0);
-            mainFrame.autonWait(1000);
-            mainFrame.setIndividualDrivePower(-0.5,-0.5,-0.5,-0.5);
+            mainFrame.autonWait(750);
+            mainFrame.setIndividualDrivePower(-0.25,-0.25,-0.25,-0.25);
             mainFrame.autonWait(700);
-            mainFrame.setIndividualDrivePower(0.5,0.5,0.5,0.5);
+            mainFrame.setIndividualDrivePower(0.25,0.25,0.25,0.25);
             mainFrame.autonWait(700);
             mainFrame.setIndividualDrivePower(0,0,0,0);
-            mainFrame.autonWait(700);
+            mainFrame.autonWait(750);
             mainFrame.setIndividualDrivePower(motorPower,-motorPower,-motorPower,motorPower);
             mainFrame.autonWait(500);
         }
@@ -61,19 +61,19 @@ public class AutonFunctions {
             mainFrame.setIndividualDrivePower(-motorPower,motorPower,motorPower,-motorPower);
             mainFrame.autonWait(parkingTime);
             mainFrame.setIndividualDrivePower(0,0,0,0);
-            mainFrame.autonWait(1000);
-            mainFrame.setIndividualDrivePower(-0.5,-0.5,-0.5,-0.5);
-            mainFrame.autonWait(700);
-            mainFrame.setIndividualDrivePower(0.5,0.5,0.5,0.5);
+            mainFrame.autonWait(750);
+            mainFrame.setIndividualDrivePower(-0.25,-0.25,-0.25,-0.25);
+            mainFrame.autonWait(750);
+            mainFrame.setIndividualDrivePower(0.25,0.25,0.25,0.25);
             mainFrame.autonWait(700);
             mainFrame.setIndividualDrivePower(0,0,0,0);
             mainFrame.autonWait(200);
             mainFrame.setIndividualDrivePower(-motorPower,motorPower,motorPower,-motorPower);
             mainFrame.autonWait(500);
             mainFrame.setIndividualDrivePower(0,0,0,0);
-            mainFrame.autonWait(1000);
+            mainFrame.autonWait(700);
             mainFrame.setIndividualDrivePower(-2,-2,-2,-2);
-            mainFrame.autonWait(1000);
+            mainFrame.autonWait(600);
         }
     }
 
