@@ -10,8 +10,8 @@ import org.firstinspires.ftc.teamcode.RobotManager.Robot;
 @Config
 public class ControlCenterTeleOp {
 
-    public static double clawClosedPos = 0.6, clawGripPos = 0.2, clawOpenPos = 0.7;
-    public static double originalLiftPos = 0.4, liftDownPow = -0.2, liftUpPow = 0.2;
+    public static double clawClosedPos = 0.3, clawGripPos = 0.15, clawOpenPos = 0.4;
+    public static double originalLiftPos = 0.0, liftDownPow = -0.2, liftUpPow = 0.2;
 
     public static void clawRelease(Robot r, Controller ctrl){
         r.addThread(new Thread(() -> {
@@ -41,6 +41,9 @@ public class ControlCenterTeleOp {
                 }
                 else if(ctrl.buttonDown()){
                     liftMotor.get().setPower(liftDownPow);
+                }
+                else if(ctrl.buttonX()){
+                    liftMotor.get().setPower(originalLiftPos);
                 }
             }
         }), true);
