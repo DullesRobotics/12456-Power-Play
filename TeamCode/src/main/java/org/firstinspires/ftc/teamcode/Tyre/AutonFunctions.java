@@ -44,29 +44,33 @@ public class AutonFunctions {
         if(op.isStopRequested()) return;
 
         if(position == FieldPosition.SAME){
+            //motorPower = 0.5; parking time = 600
+            //
             mainFrame.setIndividualDrivePower(motorPower,-motorPower,-motorPower,motorPower);
             mainFrame.autonWait(parkingTime);
-            mainFrame.setIndividualDrivePower(0,0,0,0);
+            mainFrame.setIndividualDrivePower(-motorPower/5,0,-motorPower/5,0);
             mainFrame.autonWait(750);
             mainFrame.setIndividualDrivePower(-0.25,-0.25,-0.25,-0.25);
             mainFrame.autonWait(700);
             mainFrame.setIndividualDrivePower(0.25,0.25,0.25,0.25);
             mainFrame.autonWait(700);
-            mainFrame.setIndividualDrivePower(0,0,0,0);
+            mainFrame.setIndividualDrivePower(0,-motorPower/5,0,-motorPower/5);
             mainFrame.autonWait(750);
             mainFrame.setIndividualDrivePower(motorPower,-motorPower,-motorPower,motorPower);
             mainFrame.autonWait(500);
+            mainFrame.setIndividualDrivePower(0,0,0,0);
+            mainFrame.autonWait(750);
         }
         else if(position == FieldPosition.DIFFERENT){
             mainFrame.setIndividualDrivePower(-motorPower,motorPower,motorPower,-motorPower);
             mainFrame.autonWait(parkingTime);
-            mainFrame.setIndividualDrivePower(0,0,0,0);
+            mainFrame.setIndividualDrivePower(-motorPower/5,0,-motorPower/5,0);
             mainFrame.autonWait(750);
             mainFrame.setIndividualDrivePower(-0.25,-0.25,-0.25,-0.25);
             mainFrame.autonWait(750);
             mainFrame.setIndividualDrivePower(0.25,0.25,0.25,0.25);
             mainFrame.autonWait(700);
-            mainFrame.setIndividualDrivePower(0,0,0,0);
+            mainFrame.setIndividualDrivePower(0,-motorPower/5,0,-motorPower/5);
             mainFrame.autonWait(200);
             mainFrame.setIndividualDrivePower(-motorPower,motorPower,motorPower,-motorPower);
             mainFrame.autonWait(500);

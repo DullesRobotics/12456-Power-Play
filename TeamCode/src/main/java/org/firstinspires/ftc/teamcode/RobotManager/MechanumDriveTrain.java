@@ -65,4 +65,38 @@ public class MechanumDriveTrain extends StandardDriveTrain{
         }), true, () -> getLogger().clearData());
     }
 
+    /**
+     //     * Has the robot strafe a distance w/o a PID
+     //     * @param inches How far to go in inches. Positive is left, Negative is right
+     //     */
+    public void autoStrafeEncoded(double inches){
+        getLogger().log(Level.INFO, "Strafing with Encoders");
+        resetAllEncoders();
+        setAllRunToPosition();
+
+        double power = inches < 0 ? -speed : speed;
+
+        /*
+         *       FRONT            BACK
+         * LEFT  !opp !strafeOpp  !opp strafeOpp
+         * RIGHT opp  strafeOpp   opp  !strafeOpp
+         *
+         * Loops through every motor and sets the position for it to go to. If it's a front motor is subtracts the ticks, otherwise it adds
+         */
+        for(DrivetrainMotor motor : getDrivetrainMotors()){
+            /* if is front motor */
+            boolean isFront = (motor.isFlipped() && motor.isStrafeFlipped()) || (!motor.isFlipped() && !motor.isStrafeFlipped());
+            motor.get().setTargetPosition(motor.get().getCurrentPosition() + (isFront ? -1 : 1) * motor.getConfiguration().inchesToCounts(inches));
+        }
+
+        setUniformDrivePower(power);
+        while(op().opModeIsActive() && isAnyDriveTrainMotorBusy()) {
+            getLogger().putData("Power", power);
+            setUniformDrivePower(power);
+        }
+        getLogger().clearData();
+        setUniformDrivePower(0);
+        getLogger().log(Level.INFO, "Finished strafing with Encoders");
+    }
+
 }
