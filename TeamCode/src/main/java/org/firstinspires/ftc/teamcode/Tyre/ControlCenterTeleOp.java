@@ -31,7 +31,7 @@ public class ControlCenterTeleOp {
         }), true);
     }
 
-    public static void liftArm(Robot r, Controller ctrl){
+    public static void drawerSlidesLift(Robot r, Controller ctrl){
         r.addThread(new Thread(() -> {
             Motor liftMotor = r.getMotor("LIFT");
             liftMotor.get().setPower(originalLiftPos);
