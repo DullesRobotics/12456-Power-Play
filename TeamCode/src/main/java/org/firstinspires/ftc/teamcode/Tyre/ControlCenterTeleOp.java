@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.Tyre;
 
 import com.acmerobotics.dashboard.config.Config;
+import com.qualcomm.robotcore.hardware.DcMotor;
 
 import org.firstinspires.ftc.teamcode.Hardware.Controller;
 import org.firstinspires.ftc.teamcode.Hardware.Motor.Motor;
@@ -11,7 +12,7 @@ import org.firstinspires.ftc.teamcode.RobotManager.Robot;
 public class ControlCenterTeleOp {
 
     public static double clawClosedPos = 0.3, clawGripPos = 0.15, clawOpenPos = 0.4;
-    public static double originalLiftPos = 0.0, liftDownPow = -0.2, liftUpPow = 0.2;
+    public static double originalLiftPos = 0.0, liftDownPow = 1, liftUpPow = 0.8;
 
     public static void clawRelease(Robot r, Controller ctrl){
         r.addThread(new Thread(() -> {
@@ -35,17 +36,26 @@ public class ControlCenterTeleOp {
         r.addThread(new Thread(() -> {
             Motor liftMotor = r.getMotor("LIFT");
             liftMotor.get().setPower(originalLiftPos);
+            double currentLiftPower = liftMotor.get().getPower();
             while(r.op().opModeIsActive()){
-                if(ctrl.buttonUp()){
-                    liftMotor.get().setPower(liftUpPow);
+                if(ctrl.leftTrigger() > 0){
+                    liftMotor.get().setPower(liftUpPow * ctrl.leftTrigger());
                 }
-                else if(ctrl.buttonDown()){
-                    liftMotor.get().setPower(liftDownPow);
+                else if(ctrl.rightTrigger() > 0){
+                    liftMotor.get().setPower(liftDownPow * -ctrl.rightTrigger());
                 }
-                else if(ctrl.buttonX()){
+                else{
                     liftMotor.get().setPower(originalLiftPos);
                 }
             }
         }), true);
     }
+
+//    public static void checkLiftPos(Robot r, double liftPower, Motor lift){
+//        r.addThread(new Thread(() -> {
+//            if(liftPower > 2){
+//                lift.get().setPower(2);
+//            }
+//        }), true);
+//    }
 }

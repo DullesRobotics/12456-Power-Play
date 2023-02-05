@@ -36,8 +36,9 @@ public class AutonFunctions {
     public static void startNew(LinearOpMode op, TeamColor t, FieldPosition position){
         roadRunner = new SampleMecanumDrive(op);
         mainFrame = roadRunner.getDriveTrain();
+        Servo Claw = mainFrame.getServo("CLAW");
         boolean isRed = t == TeamColor.RED;
-        double motorPower = isRed ? -motorMovementPower : motorMovementPower;
+        double motorPower = isRed ? motorMovementPower : -motorMovementPower;
 
         op.waitForStart();
 
@@ -45,13 +46,16 @@ public class AutonFunctions {
 
         if(position == FieldPosition.SAME){
             //motorPower = 0.5; parking time = 600
-            //
+            Claw.get().setPosition(0.15);
+            mainFrame.autonWait(200);
             mainFrame.setIndividualDrivePower(motorPower,-motorPower,-motorPower,motorPower);
             mainFrame.autonWait(parkingTime);
             mainFrame.setIndividualDrivePower(-motorPower/5,0,-motorPower/5,0);
             mainFrame.autonWait(750);
             mainFrame.setIndividualDrivePower(-0.25,-0.25,-0.25,-0.25);
             mainFrame.autonWait(700);
+            Claw.get().setPosition(0.3);
+            mainFrame.autonWait(400);
             mainFrame.setIndividualDrivePower(0.25,0.25,0.25,0.25);
             mainFrame.autonWait(700);
             mainFrame.setIndividualDrivePower(0,-motorPower/5,0,-motorPower/5);
@@ -74,9 +78,9 @@ public class AutonFunctions {
             mainFrame.autonWait(200);
             mainFrame.setIndividualDrivePower(-motorPower,motorPower,motorPower,-motorPower);
             mainFrame.autonWait(500);
-            mainFrame.setIndividualDrivePower(0,0,0,0);
+            mainFrame.setIndividualDrivePower(0,-motorPower/5,0,-motorPower/5);
             mainFrame.autonWait(700);
-            mainFrame.setIndividualDrivePower(-2,-2,-2,-2);
+            mainFrame.setIndividualDrivePower(-0.5,-0.5,-0.5,-0.5);
             mainFrame.autonWait(600);
         }
     }
