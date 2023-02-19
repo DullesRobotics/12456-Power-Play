@@ -11,7 +11,7 @@ import org.firstinspires.ftc.teamcode.RobotManager.Robot;
 @Config
 public class ControlCenterTeleOp {
 
-    public static double clawClosedPos = 0.3, clawGripPos = 0.15, clawOpenPos = 0.4;
+    public static double clawClosedPos = 0.3, clawGripPos = 0.05, clawOpenPos = 0.4;
     public static double originalLiftPos = 0.0, liftDownPow = 1, liftUpPow = 0.8;
 
     public static void clawRelease(Robot r, Controller ctrl){
