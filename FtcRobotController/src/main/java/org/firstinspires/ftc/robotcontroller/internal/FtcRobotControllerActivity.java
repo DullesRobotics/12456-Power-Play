@@ -138,17 +138,12 @@ public class FtcRobotControllerActivity extends Activity
   {
   public static final String TAG = "RCActivity";
   public String getTag() { return TAG; }
-
   private static final int REQUEST_CONFIG_WIFI_CHANNEL = 1;
   private static final int NUM_GAMEPADS = 2;
-
   protected WifiManager.WifiLock wifiLock;
   protected RobotConfigFileManager cfgFileMgr;
-
   private OnBotJavaHelper onBotJavaHelper;
-
   protected ProgrammingModeManager programmingModeManager;
-
   protected UpdateUI.Callback callback;
   protected Context context;
   protected Utility utility;
@@ -156,7 +151,6 @@ public class FtcRobotControllerActivity extends Activity
   protected StartResult deviceNameStartResult = new StartResult();
   protected PreferencesHelper preferencesHelper;
   protected final SharedPreferencesListener sharedPreferencesListener = new SharedPreferencesListener();
-
   protected ImageButton buttonMenu;
   protected TextView textDeviceName;
   protected TextView textNetworkConnectionStatus;
@@ -165,24 +159,17 @@ public class FtcRobotControllerActivity extends Activity
   protected TextView textOpMode;
   protected TextView textErrorMessage;
   protected ImmersiveMode immersion;
-
   protected UpdateUI updateUI;
   protected Dimmer dimmer;
   protected LinearLayout entireScreenLayout;
-
   protected FtcRobotControllerService controllerService;
   protected NetworkType networkType;
-
   protected FtcEventLoop eventLoop;
   protected Queue<UsbDevice> receivedUsbAttachmentNotifications;
-
   protected WifiMuteStateMachine wifiMuteStateMachine;
   protected MotionDetection motionDetection;
-
   private static boolean permissionsValidated = false;
-
   private WifiDirectChannelChanger wifiDirectChannelChanger;
-
   protected class RobotRestarter implements Restarter {
 
     public void requestRestart() {
